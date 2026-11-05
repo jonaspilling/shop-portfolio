@@ -1,0 +1,8 @@
+.backups/
+
+# Sensible Daten – niemals in Git!
+settings.json
+coupons.json
+bestellungen/orders.json
+logs/
+*.log

@@ -1,0 +1,579 @@
+:root {
+    --bg-dark: #090909;
+    --text-white: #f5f5f5;
+    --text-dim: #999999;
+    --border: rgba(255, 255, 255, 0.15);
+    --border-strong: rgba(255, 255, 255, 0.35);
+}
+
+@font-face {
+    font-family: 'Klebekunst Headline';
+    src: url('fonts/Klebekunst-Regular.ttf?v=2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-Variable.woff2') format('woff2-variations'),
+        url('fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 120px;
+    overflow-x: hidden;
+    background-image: url('images/bg-exhibition.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   HEADER (VOLLE BREITE)
+   ========================================================= */
+.full-header {
+    width: 100%;
+    padding: 60px 4vw 35px 4vw;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.brand-title {
+    font-family: 'Klebekunst Headline', sans-serif;
+    font-size: clamp(3.5rem, 13vw, 11rem);
+    line-height: 0.82;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.header-note {
+    font-size: 14px;
+    color: var(--text-dim);
+    max-width: 420px;
+    text-align: right;
+    line-height: 1.5;
+}
+
+.header-note span {
+    color: #fff;
+    display: block;
+    margin-top: 4px;
+}
+
+/* =========================================================
+   PRODUKTE (VOLLE DESKTOP-BREITE 100VW)
+   ========================================================= */
+.full-canvas {
+    width: 100%;
+    padding: 60px 0;
+}
+
+.product-row {
+    width: 100%;
+    padding: 60px 4vw;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4vw;
+    align-items: center;
+}
+
+.product-row.reverse {
+    grid-template-columns: 1fr 1.3fr;
+}
+
+.product-row.reverse .product-visual {
+    order: 2;
+}
+
+.product-row.reverse .product-body {
+    order: 1;
+}
+
+/* Bildbereich */
+.product-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.product-visual img {
+    width: 100%;
+    max-width: 680px;
+    max-height: 600px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85));
+    transition: transform 0.3s ease;
+}
+
+.product-visual:hover img {
+    transform: scale(1.02);
+}
+
+/* Infobereich */
+.product-body {
+    max-width: 520px;
+    width: 100%;
+}
+
+.product-title {
+    font-family: 'Klebekunst Headline', sans-serif;
+    font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+    line-height: 0.95;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.product-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+/* Steuerung */
+.controls-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.select-row {
+    display: flex;
+    gap: 10px;
+}
+
+.clean-select {
+    flex: 1;
+    background: #111;
+    color: #fff;
+    border: 1px solid var(--border-strong);
+    height: 48px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+/* --- FIX FÜR DEN MENGENZÄHLER (+ / -) --- */
+.clean-qty {
+    display: flex !important;
+    align-items: center !important;
+    border: 1px solid var(--border-strong) !important;
+    background: #111 !important;
+    height: 48px !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.clean-qty button {
+    width: 38px !important;
+    height: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    font-size: 1.3rem !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: background 0.15s ease !important;
+}
+
+.clean-qty button:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.clean-qty input {
+    flex: 1 !important;
+    width: 44px !important;
+    height: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    -moz-appearance: textfield !important;
+    /* Entfernt Firefox-Pfeile */
+}
+
+/* Entfernt Chrome/Safari/Edge-Standard-Pfeile im Input */
+.clean-qty input::-webkit-outer-spin-button,
+.clean-qty input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+.clean-buy-btn {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.clean-buy-btn:hover {
+    background: #ccc;
+}
+
+/* =========================================================
+   GRÖSSENTABELLE
+   ========================================================= */
+.size-chart-section {
+    width: 100%;
+    padding: 40px 4vw;
+    border-bottom: 1px solid var(--border);
+}
+
+.size-toggle-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arrow-icon {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+}
+
+.size-toggle-btn.active .arrow-icon {
+    transform: rotate(-135deg);
+}
+
+.size-table-container {
+    display: none;
+    margin-top: 25px;
+    max-width: 800px;
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: center;
+}
+
+.size-table th,
+.size-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.size-table th {
+    color: var(--text-dim);
+}
+
+/* =========================================================
+   BOTTOM BAR (WARENKORB)
+   ========================================================= */
+.floating-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    border: 1px solid var(--border-strong);
+    z-index: 9999;
+}
+
+.floating-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 20px;
+}
+
+.cart-toggle-click {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.checkout-link-btn {
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    text-transform: uppercase;
+}
+
+.floating-cart-list {
+    display: none;
+    border-top: 1px solid var(--border);
+    background: #0a0a0a;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.cart-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+}
+
+.mini-qty-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid var(--border-strong);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.remove-item-btn {
+    background: transparent;
+    color: var(--text-dim);
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.remove-item-btn:hover {
+    color: #fff;
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+body.no-scroll {
+    overflow: hidden !important;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 100000;
+}
+
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 650px;
+    background: #0d0d0d;
+    border: 1px solid var(--border-strong);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.modal-img-stage {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    margin-bottom: 15px;
+}
+
+#modal-img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+#modal-title {
+    font-family: 'Klebekunst Headline', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+#modal-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    white-space: pre-line;
+}
+
+.modal-gallery {
+    display: flex;
+    gap: 8px;
+}
+
+.modal-gallery img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 1px solid var(--border-strong);
+    cursor: pointer;
+}
+
+/* =========================================================
+   FOOTER (VOLLE BREITE)
+   ========================================================= */
+.full-footer {
+    width: 100%;
+    padding: 40px 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.footer-nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+/* =========================================================
+   📱 MOBILE ANPASSUNG (CLEAN & DIREKT)
+   ========================================================= */
+@media (max-width: 850px) {
+    .full-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 20px 20px 20px;
+        gap: 15px;
+    }
+
+    .header-note {
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .full-canvas {
+        padding: 20px 0;
+    }
+
+    .product-row,
+    .product-row.reverse {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 25px;
+    }
+
+    .product-row.reverse .product-visual {
+        order: 1;
+    }
+
+    .product-row.reverse .product-body {
+        order: 2;
+    }
+
+    .product-visual img {
+        max-width: 320px;
+    }
+
+    .product-title {
+        font-size: 2.2rem;
+    }
+
+    .size-chart-section {
+        padding: 30px 20px;
+    }
+
+    .floating-bar {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        border-right: none;
+        border-left: none;
+        border-bottom: none;
+    }
+
+    .floating-bar-inner {
+        justify-content: space-between;
+        padding: 12px 18px;
+    }
+
+    .full-footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .footer-nav a {
+        margin: 0 10px;
+    }
+}

@@ -1,0 +1,36 @@
+# =============================================
+# KLEBEKUNST – Apache Security Headers & Rules
+# =============================================
+
+# --- JSON & Log Dateien vor Web-Zugriff schützen ---
+<FilesMatch "^(settings|coupons|drops|products|stock|plakat_stock)\.json$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(log)$">
+    Require all denied
+</FilesMatch>
+
+# --- Security Headers ---
+<IfModule mod_headers.c>
+    # Clickjacking verhindern
+    Header always set X-Frame-Options "DENY"
+    # MIME-Sniffing verhindern
+    Header always set X-Content-Type-Options "nosniff"
+    # Referrer nur auf gleiche Domain
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # Minimale Content-Security-Policy
+    Header always set X-XSS-Protection "1; mode=block"
+    # HSTS (nur wenn HTTPS aktiv) – 1 Jahr
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# --- Verzeichnis-Listings deaktivieren ---
+Options -Indexes
+
+# --- PHP-Datei-Uploads mit gefährlichen Endungen blockieren ---
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|cgi|sh)$">
+    <RequireAll>
+        Require all granted
+    </RequireAll>
+</FilesMatch>

@@ -1,0 +1,71 @@
+{
+    "sticker1": {
+        "id": "sticker1",
+        "title": "Waldstadion (50 Stück)",
+        "price": 5.0,
+        "image": "images/sticker1.png",
+        "gallery": [
+            "images/sticker1.png",
+            "images/sticker1-d1.png",
+            "images/sticker1-d2.png"
+        ],
+        "description": "Runder Aufkleber Waldstadion-Motiv, 8cm Durchmesser. Wetterfestes Outdoor-Vinyl.",
+        "size": "Ø 8cm • Rund",
+        "has_sizes": false,
+        "sizes": [],
+        "has_qty": true,
+        "max_qty": 500,
+        "qty_step": 50,
+        "qty_unit": " Stk.",
+        "csv_suffix": "Sticker_Waldstadion",
+        "ref_prefix": "Waldstadion",
+        "drop_id": "drop_1",
+        "status": "active"
+    },
+    "sticker2": {
+        "id": "sticker2",
+        "title": "Rebelling Kids (50 Stück)",
+        "price": 5.0,
+        "image": "images/sticker2.png",
+        "gallery": [
+            "images/sticker2.png",
+            "images/sticker2-d1.png",
+            "images/sticker2-d2.png"
+        ],
+        "description": "Aufkleber Rebelling Kids-Motiv, 21x3,1cm. Wetterfestes Outdoor-Vinyl.",
+        "size": "21 × 3,1 cm",
+        "has_sizes": false,
+        "sizes": [],
+        "has_qty": true,
+        "max_qty": 500,
+        "qty_step": 50,
+        "qty_unit": " Stk.",
+        "csv_suffix": "Sticker_RebellingKids",
+        "ref_prefix": "RebellingKids",
+        "drop_id": "drop_1",
+        "status": "active"
+    },
+    "sticker3": {
+        "id": "sticker3",
+        "title": "Schwenker (50 Stück)",
+        "price": 5.0,
+        "image": "images/sticker3.png",
+        "gallery": [
+            "images/sticker3.png",
+            "images/sticker3-d1.png",
+            "images/sticker3-d2.png"
+        ],
+        "description": "Aufkleber Schwenker-Motiv, 8x11,2cm. Wetterfestes Outdoor-Vinyl.",
+        "size": "8 × 11,2 cm",
+        "has_sizes": false,
+        "sizes": [],
+        "has_qty": true,
+        "max_qty": 500,
+        "qty_step": 50,
+        "qty_unit": " Stk.",
+        "csv_suffix": "Sticker_Schwenker",
+        "ref_prefix": "Schwenker",
+        "drop_id": "drop_1",
+        "status": "active"
+    }
+}

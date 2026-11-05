@@ -1,0 +1,26 @@
+{
+    "RRRRRRRRRRR10": {
+        "type": "percent",
+        "value": 10
+    },
+    "GGGGGGGGGGGGGGG5": {
+        "type": "fixed",
+        "value": 5
+    },
+    "ALLLLLLLLLLLLLLL": {
+        "type": "free",
+        "value": 100
+    },
+    "NURRRRRRRRRR": {
+        "type": "items_free",
+        "value": 0
+    },
+    "VERRRRRRRRRRRR": {
+        "type": "free_shipping",
+        "value": 0
+    },
+    "MFF50": {
+        "type": "percent_free_shipping",
+        "value": 50
+    }
+}
